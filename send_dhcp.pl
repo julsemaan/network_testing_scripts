@@ -4,6 +4,9 @@
 
 Craft a DHCP packet and send the DHCPREQUEST and DHCPACK on the network
 
+Usage : 
+    perl send_dhcp.pl --mac=00:11:22:33:44:55 --ip=172.20.20.192 --hostname=hello --dhcp-fingerprint=1,2,3,4 --dhcp-vendor=test
+
 =cut
 
 use warnings;
@@ -28,6 +31,7 @@ GetOptions (
 $options{mac} =~ s/://g;
 $options{mac} = uc($options{mac});
 
+# Send the REQUEST + ACK
 send_packet();
 send_packet(1);
 
