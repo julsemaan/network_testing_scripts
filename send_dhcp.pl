@@ -31,6 +31,9 @@ GetOptions (
 $options{mac} =~ s/://g;
 $options{mac} = uc($options{mac});
 
+$options{'dhcp-vendor'} = $options{'dhcp-vendor'} eq "NULL" ? '' : $options{'dhcp-vendor'};
+$options{'dhcp-fingerprint'} = $options{'dhcp-fingerprint'} eq "NULL" ? '' : $options{'dhcp-fingerprint'};
+
 # Send the REQUEST + ACK
 send_packet();
 send_packet(1);
